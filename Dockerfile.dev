@@ -1,0 +1,18 @@
+FROM node:alpine
+
+USER node
+
+RUN mkdir -p /home/node/app
+WORKDIR '/home/node/app'
+
+# Refer https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/learn/lecture/11436998#questions/14297316
+# Refer https://github.com/nodejs/docker-node/issues/740 for why chown
+COPY --chown=node:node ./package.json ./
+RUN npm install
+
+COPY --chown=node:node ./ ./
+
+CMD ["npm", "run", "start"]
+
+# RAN USING
+# docker run -p 3000:3000 -v /home/node/app/node_modules -v $(pwd):/home/node/app <container-id>
