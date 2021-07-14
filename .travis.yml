@@ -15,7 +15,8 @@ deploy:
   region: "ap-south-1"
   app: "docker-react-tutorial"
   env: "Dockerreacttutorial-env"
-  bucket_name: "docker-react-tutorial"
+  bucket_name: "elasticbeanstalk-ap-south-1-988105863762"
+  bucket_path: "docker-react-tutorial"
   on:
     branch: main
   access_key_id: $AWS_ACCESS_KEY
